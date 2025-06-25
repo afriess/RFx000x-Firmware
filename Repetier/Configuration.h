@@ -42,7 +42,7 @@
 // ##   main hardware configuration
 // ##########################################################################################
 
-/** \brief Define the type of your device */
+/**  Define the type of your device */
 //#define MOTHERBOARD                         DEVICE_TYPE_RF1000
 //#define MOTHERBOARD                         DEVICE_TYPE_RF2000
 //#define MOTHERBOARD                         DEVICE_TYPE_RF2000v2
@@ -55,7 +55,7 @@
 #endif // MOTHERBOARD == DEVICE_TYPE_RF2000v2
 
 /**
- * \brief EEPROM storage mode
+ *  EEPROM storage mode
  * Set the EEPROM_MODE to 0 if you always want to use the settings in this configuration file. If not,
  * set it to a value not stored in the first EEPROM-byte used. If you later want to overwrite your current
  * EEPROM settings with configuration defaults, just select an other value. On the first call to epr_init()
@@ -71,21 +71,21 @@
 // ##    supported features
 // ##########################################################################################
 
-/** \brief Enables/diables the emergency pause in case of too high pressure */
+/**  Enables/diables the emergency pause in case of too high pressure */
 #define FEATURE_EMERGENCY_PAUSE             1                                                    // 1 = on, 0 = off
 
-/** \brief Specifies if you want to see the pressure digits within the repetier-server/repetier-host temperature message */
+/**  Specifies if you want to see the pressure digits within the repetier-server/repetier-host temperature message */
 #define FEATURE_PRINT_PRESSURE              1                                                    // 1 = on, 0 = off
 
-/** \brief Specifies if you want to adjust your average pressure to zero digits after homing. This pushes the weight-scale to zero by adding the idle pressure as an offset. */
+/**  Specifies if you want to adjust your average pressure to zero digits after homing. This pushes the weight-scale to zero by adding the idle pressure as an offset. */
 #define FEATURE_ZERO_DIGITS                 1
 
-/** \brief Auto-Retract within hardcoded scripts: Pause / Output_Object / ... Vom Hotend abhängig! V2: 10mm, E3D: 1-2mm (?) */
+/**  Auto-Retract within hardcoded scripts: Pause / Output_Object / ... Vom Hotend abhängig! V2: 10mm, E3D: 1-2mm (?) */
 #define SCRIPT_RETRACT_MM                   1                                                    //[mm] Firmwares E-Retract */
 
-/** \brief Enables automatic compensation in z direction for the operationg mode "print" */
+/**  Enables automatic compensation in z direction for the operationg mode "print" */
 #define FEATURE_HEAT_BED_Z_COMPENSATION     1                                                    // 1 = on, 0 = off
-/** \brief Enables the precise heat bed scan */
+/**  Enables the precise heat bed scan */
 #if FEATURE_HEAT_BED_Z_COMPENSATION
   #define FEATURE_DIGIT_Z_COMPENSATION      1                                                    // 1 = on, 0 = off
   #define FEATURE_DIGIT_FLOW_COMPENSATION   1                                                    // 1 = on, 0 = off
@@ -97,12 +97,12 @@
     #define SENSIBLE_PRESSURE_MAX_OFFSET                180
     #define SENSIBLE_PRESSURE_INTERVAL                   50                                      //weniger macht keinen sinn. ob diese einschränkung sinn macht, aber sie bleibt vorerst mal da!
   #endif // FEATURE_SENSIBLE_PRESSURE
-  /** \brief Enables debug outputs from the heat bed scan */
+  /**  Enables debug outputs from the heat bed scan */
   #define DEBUG_HEAT_BED_SCAN               0                                                    // 0 = off, 1 = on, 2 = on with more debug outputs
 #endif // FEATURE_HEAT_BED_Z_COMPENSATION
 
 /**
- * \brief The Firmwares disalowes movement before you at least: pressed a printers button, set a temperature, homed once
+ *  The Firmwares disalowes movement before you at least: pressed a printers button, set a temperature, homed once
  * If you did not do this, a previous watchdog reset is assumed and fail-drive against some border without homing is blocked thatway.
  * This is a fix for repetier-server not knowing that the printer reset and still sending commands
  */
@@ -113,28 +113,28 @@
  */
 #define XYZ_POSITION_BUTTON_DIRECTION       1                                                   // 1 = on, 0 = off
 
-/** \brief Enables/disables the emergency stop in case of too high pressure */
+/**  Enables/disables the emergency stop in case of too high pressure */
 #define FEATURE_EMERGENCY_STOP_Z_AND_E          1                                                   // 1 = on, 0 = off
 
-/** \brief Enables/disables the set to x/y origin feature */
+/**  Enables/disables the set to x/y origin feature */
 #define FEATURE_SET_TO_XY_ORIGIN            1                                                   // 1 = on, 0 = off
 
 /**
- * \brief Ditto printing allows 2 extruders to do the same action. This effectively allows
+ *  Ditto printing allows 2 extruders to do the same action. This effectively allows
  * to print an object two times at the speed of one. Works only with dual extruder setup.
  */
 #define FEATURE_DITTO_PRINTING              0                                                   // 1 = on, 0 = off
 
-/** \brief You can store the current position with M401 and go back to it with M402. This works only if feature is set to true. */
+/**  You can store the current position with M401 and go back to it with M402. This works only if feature is set to true. */
 #define FEATURE_MEMORY_POSITION             0                                                   // 1 = on, 0 = off
 
-/** \brief If a checksum is sent, all future comamnds must also contain a checksum. Increases reliability especially for binary protocol. */
+/**  If a checksum is sent, all future comamnds must also contain a checksum. Increases reliability especially for binary protocol. */
 #define FEATURE_CHECKSUM_FORCED             0                                                   // 1 = on, 0 = off
 
-/** \brief Enables/disables the support for the fan control */
+/**  Enables/disables the support for the fan control */
 #define FEATURE_FAN_CONTROL                 1                                                   // 1 = on, 0 = off
 
-/** \brief Enables/disables the support for G2/G3 arc commands 
+/**  Enables/disables the support for G2/G3 arc commands 
 Arc gcodes can have valid and invalid parameters because of the arcs math and radius/start/endpoint constraints we set by gcode params.
 a) Examples for valid arcs:
 - Full circles seem to be always working and their behaviour seems to be good.
@@ -148,17 +148,17 @@ b) Examples for impossible arcs:
 */
 #define FEATURE_ARC_SUPPORT                 1                                                   // 1 = on, 0 = off
 
-/** \brief Enables/disables the beeper */
+/**  Enables/disables the beeper */
 #define FEATURE_BEEPER                      1                                                   // 1 = on, 0 = off
 
-/** \brief Allows to use the service interval */
+/**  Allows to use the service interval */
 #define FEATURE_SERVICE_INTERVAL            0                                                   // 1 = on, 0 = off
 
-/** \brief Allows to use the case light @ X19 */
+/**  Allows to use the case light @ X19 */
 #define FEATURE_CASE_LIGHT                  1                                                   // 1 = on, 0 = off
 
 /**
- * \brief Allows to control up to 3 servos
+ *  Allows to control up to 3 servos
  * Servos are controlled by a pulse width normally between 500 and 2500 with 1500ms in center position. 0 turns servo off.
  * WARNING: Servos can draw a considerable amount of current. Make sure your system can handle this or you may risk your hardware!
  */
@@ -168,55 +168,55 @@ b) Examples for impossible arcs:
 // ##   Common extruder configuration
 // ##########################################################################################
 
-/** \brief for each extruder, fan will stay on until extruder temperature is below this value */
+/**  for each extruder, fan will stay on until extruder temperature is below this value */
 #define EXTRUDER_FAN_COOL_TEMP              50
 
-/** \brief Maximal temperature which can be set for the extruder */
+/**  Maximal temperature which can be set for the extruder */
 #define EXTRUDER_MAX_TEMP                   275
 
 // ##########################################################################################
 // ##   Hotend V1
 // ##########################################################################################
 
-/** \brief The maximum value, I-gain can contribute to the output. */
+/**  The maximum value, I-gain can contribute to the output. */
 #define HT2_PID_INTEGRAL_DRIVE_MAX          130
-/** \brief lower value for integral part. */
+/**  lower value for integral part. */
 #define HT2_PID_INTEGRAL_DRIVE_MIN          30
-/** \brief P-gain. */
+/**  P-gain. */
 #define HT2_PID_P                           37.52
-/** \brief I-gain. */
+/**  I-gain. */
 #define HT2_PID_I                           10
-/** \brief Dgain. */
+/**  Dgain. */
 #define HT2_PID_D                           35.18
 
 // ##########################################################################################
 // ##   Hotend V2
 // ##########################################################################################
 
-/** \brief The maximum value, I-gain can contribute to the output. */
+/**  The maximum value, I-gain can contribute to the output. */
 #define HT3_PID_INTEGRAL_DRIVE_MAX          120
-/** \brief lower value for integral part. */
+/**  lower value for integral part. */
 #define HT3_PID_INTEGRAL_DRIVE_MIN          30
-/** \brief P-gain. */
+/**  P-gain. */
 #define HT3_PID_P                           12.5
-/** \brief I-gain. */
+/**  I-gain. */
 #define HT3_PID_I                           3.2
-/** \brief Dgain. */
+/**  Dgain. */
 #define HT3_PID_D                           18
 
 // ##########################################################################################
 // ##	Hotend V3
 // ##########################################################################################
 
-/** \brief The maximum value, I-gain can contribute to the output. */
+/**  The maximum value, I-gain can contribute to the output. */
 #define HT4_PID_INTEGRAL_DRIVE_MAX          120
-/** \brief lower value for integral part. */
+/**  lower value for integral part. */
 #define HT4_PID_INTEGRAL_DRIVE_MIN          30
-/** \brief P-gain. */
+/**  P-gain. */
 #define HT4_PID_P                           17.11
-/** \brief I-gain. */
+/**  I-gain. */
 #define HT4_PID_I                           2.05
-/** \brief Dgain. */
+/**  Dgain. */
 #define HT4_PID_D                           35.75
 
 // ##########################################################################################
@@ -224,7 +224,7 @@ b) Examples for impossible arcs:
 // ##########################################################################################
 
 /**
- * \brief Define the to-be-used micro steps.
+ *  Define the to-be-used micro steps.
  * Note that high MICRO_STEPS limit your speed because of the limit in 8bit-CPU calculation power.
  * See "configuration of the speed vs. cpu usage" within RF1000.h / RF2000.h
  * 
@@ -239,34 +239,34 @@ b) Examples for impossible arcs:
 #define RF_MICRO_STEPS_XY                   32                                                   // standard/best 32 or 64
 #define RF_MICRO_STEPS_E                    32                                                   // standard/best 32 or 64 (or 128?? --> untested!)
 
-/** \brief Enables/disables that you can switch the micro step setting within Menu->Configuration->Stepper and it is saved in hidden EEPROM */
+/**  Enables/disables that you can switch the micro step setting within Menu->Configuration->Stepper and it is saved in hidden EEPROM */
 #define FEATURE_ADJUSTABLE_MICROSTEPS       1
 
 // ##########################################################################################
 // ##   Feedrate and Movement settings
 // ##########################################################################################
 
-/** \brief After x seconds of inactivity, the stepper motors are disabled.
+/**  After x seconds of inactivity, the stepper motors are disabled.
 Set to 0 to leave them enabled.
 This helps cooling the Stepper motors between two print jobs.
 Overridden if EEPROM activated. */
 #define STEPPER_INACTIVE_TIME               600
 
-/** \brief After x seconds of inactivity, the system will go down as far it can.
+/**  After x seconds of inactivity, the system will go down as far it can.
 It will at least disable all stepper motors and heaters. If the board has
 a power pin, it will be disabled, too.
 Set value to 0 for disabled.
 Overridden if EEPROM activated. */
 #define MAX_INACTIVE_TIME                   0L
 
-/** \brief Maximum feedrate, the system allows. Higher feedrates are reduced to these values.
+/**  Maximum feedrate, the system allows. Higher feedrates are reduced to these values.
 The axis order in all axis related arrays is X, Y, Z
 Overridden if EEPROM activated. */
 #define MAX_FEEDRATE_X                    150
 #define MAX_FEEDRATE_Y                    150
 #define MAX_FEEDRATE_Z                      9
 
-/** \brief Home position speed in mm/s. Overridden if EEPROM activated. These values can be overridden by EEPROM but are considered as maximum allowed values */
+/**  Home position speed in mm/s. Overridden if EEPROM activated. These values can be overridden by EEPROM but are considered as maximum allowed values */
 #define HOMING_FEEDRATE_X_PRINT            80
 #define HOMING_FEEDRATE_Y_PRINT            80
 #define HOMING_FEEDRATE_Z_PRINT             9
@@ -275,7 +275,7 @@ Overridden if EEPROM activated. */
 #define HOMING_FEEDRATE_Y_MILL             70
 #define HOMING_FEEDRATE_Z_MILL              7
 
-/** \brief Speed for direct movements in mm/s. Overridden if EEPROM activated. */
+/**  Speed for direct movements in mm/s. Overridden if EEPROM activated. */
 #define STANDARD_POSITION_FEEDRATE_XY     100
 #define STANDARD_POSITION_FEEDRATE_Z        9
 #define STANDARD_POSITION_FEEDRATE_E       25
@@ -286,24 +286,24 @@ Overridden if EEPROM activated. */
 
 // RF2000: Tests haben gezeigt, dass x-y-acceleration unter 2000 oder unter 1500 das Teil ziemlich gut aussieht.
 
-/** \brief X, Y, Z max acceleration in mm/s^2 for printing moves or retracts. Make sure your printer can go that high!
+/**  X, Y, Z max acceleration in mm/s^2 for printing moves or retracts. Make sure your printer can go that high!
 Overridden if EEPROM activated. */
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_X                  1500
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Y                  1500
 #define MAX_ACCELERATION_UNITS_PER_SQ_SECOND_Z                  100
 
-/** \brief X, Y, Z max acceleration in mm/s^2 for travel moves.  Overridden if EEPROM activated. */
+/**  X, Y, Z max acceleration in mm/s^2 for travel moves.  Overridden if EEPROM activated. */
 #define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_X           1500
 #define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Y           1500
 #define MAX_TRAVEL_ACCELERATION_UNITS_PER_SQ_SECOND_Z           100
 
-/** \brief X, Y, Z acceleration limits */
+/**  X, Y, Z acceleration limits */
 #define ACCELERATION_MAX_XY										6000
 #define ACCELERATION_MIN_XY										100
 #define ACCELERATION_MAX_Z                                      100
 #define ACCELERATION_MIN_Z                                      5
 
-/** \brief X, Y, Z acceleration menu change step size */
+/**  X, Y, Z acceleration menu change step size */
 #define ACCELERATION_MENU_CHANGE_XY								100
 #define ACCELERATION_MENU_CHANGE_Z                              5
 
@@ -332,7 +332,7 @@ Overridden if EEPROM activated. */
 // ##   Jerk settings
 // ##########################################################################################
 
-/** \brief Maximum allowable jerk.
+/**  Maximum allowable jerk.
 Caution: This is no real jerk in a physical meaning.
 The jerk determines your start speed and the maximum speed at the join of two segments.
 Its unit is mm/s. If the printer is standing still, the start speed is jerk/2. At the
@@ -366,7 +366,7 @@ Overridden if EEPROM activated. */
 // ##########################################################################################
 
 /**
- * \brief Writes the free RAM to output, if it is less then at the last test. Should always return
+ *  Writes the free RAM to output, if it is less then at the last test. Should always return
  * values >500 for safety, since it doesn't catch every function call. Nice to tweak cache
  * usage or for seraching for memory induced errors. Switch it off for production, it costs execution time.
  */
@@ -391,7 +391,7 @@ Overridden if EEPROM activated. */
 // ##   configuration of the output object functionality
 // ##########################################################################################
 
-/** \brief The following script allows to configure the exact behavior of the automatic object output */
+/**  The following script allows to configure the exact behavior of the automatic object output */
 #define OUTPUT_OBJECT_SCRIPT_PRINT          "G21\nG92 E0\nG1 E-" xstr(SCRIPT_RETRACT_MM) "\nG4 P100\nG92 E0\nG90\nG1 Z200 F540\nG1 Y245 F4800"
 #define OUTPUT_OBJECT_SCRIPT_MILL           "G28 Z0\nG21\nG91\nG1 Y245 F4800"
 
@@ -403,20 +403,20 @@ Overridden if EEPROM activated. */
     #error FEATURE_PAUSE_PRINTING can not be used without FEATURE_HEAT_BED_Z_COMPENSATION or FEATURE_WORK_PART_Z_COMPENSATION
 #endif // !FEATURE_HEAT_BED_Z_COMPENSATION && !FEATURE_WORK_PART_Z_COMPENSATION
 
-/** \brief Specifies the time interval after the pausing of the print at which the extruder current is reduced */
+/**  Specifies the time interval after the pausing of the print at which the extruder current is reduced */
 #define EXTRUDER_CURRENT_PAUSE_DELAY        60000                                               // [ms] Minimum 30000 -> 30s.
 
-/** \brief Specifies the extruder current which shall be use after pausing of the print and before continuing of the print */
+/**  Specifies the extruder current which shall be use after pausing of the print and before continuing of the print */
 #define EXTRUDER_CURRENT_PAUSED             32                                                  // ~0.5A
 
 // ##########################################################################################
 // ##   configuration of the park functionality
 // ##########################################################################################
 
-/** \brief Enables/disables the park feature */
+/**  Enables/disables the park feature */
 #define FEATURE_PARK                        0                                                   // 1 = on, 0 = off
 
-/** \brief Specifies the park position, in [mm] */
+/**  Specifies the park position, in [mm] */
 #define PARK_POSITION_X                     0                                                  // [mm]
 #define PARK_POSITION_Y                     120                                                // [mm]
 #define PARK_POSITION_Z                     175                                                // [mm]
@@ -429,17 +429,17 @@ Overridden if EEPROM activated. */
 #if FEATURE_EMERGENCY_PAUSE
 
 /**
- * \brief Specifies the pressure at which the emergency pause shall be performed, in [digits]
+ *  Specifies the pressure at which the emergency pause shall be performed, in [digits]
  * @ ca. +- 15000 the sensors tend to start bending
  * With RF1.37r2.Mod the Emergency-Pause-Features limits can be changed in EEPROM and Printers Menu. Here are the absolute maximum limits:
  */
 #define EMERGENCY_PAUSE_DIGITS_MIN          -11000                                 // [digits]
 #define EMERGENCY_PAUSE_DIGITS_MAX           11000                                 // [digits]
 
-/** \brief Specifies the interval at which the pressure check shall be performed, in [ms] */
+/**  Specifies the interval at which the pressure check shall be performed, in [ms] */
 #define EMERGENCY_PAUSE_INTERVAL            100
 
-/** \brief Specifies the number of pressure values which shall be averaged. The emergency pause can be detected each EMERGENCY_PAUSE_INTERVAL * EMERGENCY_PAUSE_CHECKS [ms] */
+/**  Specifies the number of pressure values which shall be averaged. The emergency pause can be detected each EMERGENCY_PAUSE_INTERVAL * EMERGENCY_PAUSE_CHECKS [ms] */
 #define EMERGENCY_PAUSE_CHECKS              10
 
 #endif // FEATURE_EMERGENCY_PAUSE
@@ -452,7 +452,7 @@ Overridden if EEPROM activated. */
 #if FEATURE_EMERGENCY_STOP_Z_AND_E
 
 /**
- * \brief 
+ *  
  * Specifies the pressure at which 
  * - the z emergency stop shall be performed
  * - extrusion is forbidden
@@ -462,10 +462,10 @@ Overridden if EEPROM activated. */
 #define EMERGENCY_STOP_DIGITS_MIN           -12500                                 // [digits]
 #define EMERGENCY_STOP_DIGITS_MAX            12500                                 // [digits]
 
-/** \brief Specifies the interval at which the pressure check shall be performed, in [ms] */
+/**  Specifies the interval at which the pressure check shall be performed, in [ms] */
 #define EMERGENCY_STOP_INTERVAL             10
 
-/** \brief Specifies the number of pressure values which shall be averaged. The emergency stop can be detected each EMERGENCY_STOP_INTERVAL * EMERGENCY_STOP_CHECKS [ms] */
+/**  Specifies the number of pressure values which shall be averaged. The emergency stop can be detected each EMERGENCY_STOP_INTERVAL * EMERGENCY_STOP_CHECKS [ms] */
 #define EMERGENCY_STOP_CHECKS               3
 
 #endif // FEATURE_EMERGENCY_STOP_Z_AND_E
@@ -477,18 +477,18 @@ Overridden if EEPROM activated. */
 
 #if FEATURE_SERVICE_INTERVAL
 /**
- * \brief Wie setze ich den Interval wieder zurück, ohne die Firmware neu aufzuspielen?
+ *  Wie setze ich den Interval wieder zurück, ohne die Firmware neu aufzuspielen?
  * Um diese Meldung zurück zu setzen muss man den RFx000 ausschalten, die Knöpfe "links", "rauf" und "runter" drücken (und alle drei gedrückt halten), den RFx000 einschalten und die Knöpfe ca. 5-10 Sekunden danach loslassen.
  * Damit werden die Service-Zähler wieder auf 0 zurück gestellt.
  */
 
-/** \brief Specifies the max printed hours [h] */
+/**  Specifies the max printed hours [h] */
 #define HOURS_PRINTED_UNTIL_SERVICE         100
 
-/** \brief Specifies the max milling hours [h] */
+/**  Specifies the max milling hours [h] */
 #define HOURS_MILLED_UNTIL_SERVICE          100
 
-/** \brief Specifies the max printed filament [m] */
+/**  Specifies the max printed filament [m] */
 #define FILAMENT_PRINTED_UNTIL_SERVICE      50000
 
 #endif // FEATURE_SERVICE_INTERVAL
@@ -512,23 +512,23 @@ Overridden if EEPROM activated. */
  * If you have a PTC thermistor instead of a NTC thermistor, keep the adc values increasing and use themistor types 50-52 instead of 5-7!
  */
 
-/** \brief Number of entries in the user thermistor table 0. Set to 0 to disable it. */
+/**  Number of entries in the user thermistor table 0. Set to 0 to disable it. */
 #define NUM_TEMPS_USERTHERMISTOR0           28
 #define USER_THERMISTORTABLE0  {\
   {1*4,864*8},{21*4,280*8},{25*4,270*8},{29*4,260*8},{33*4,250*8},{39*4,240*8},{46*4,230*8},{54*4,220*8},{64*4,210*8},{75*4,200*8},\
   {90*4,190*8},{107*4,180*8},{128*4,170*8},{154*4,160*8},{184*4,150*8},{221*4,140*8},{265*4,130*8},{316*4,120*8},{375*4,110*8},\
   {441*4,105*8},{513*4,100*8},{588*4,100*8},{734*4,80*8},{856*4,60*8},{938*4,40*8},{986*4,20*8},{1008*4,0*8},{1018*4,-20*8} }
 
-/** \brief Number of entries in the user thermistor table 1. Set to 0 to disable it. */
+/**  Number of entries in the user thermistor table 1. Set to 0 to disable it. */
 #define NUM_TEMPS_USERTHERMISTOR1           0
 #define USER_THERMISTORTABLE1               {}
 
-/** \brief Number of entries in the user thermistor table 2. Set to 0 to disable it. */
+/**  Number of entries in the user thermistor table 2. Set to 0 to disable it. */
 #define NUM_TEMPS_USERTHERMISTOR2           0
 #define USER_THERMISTORTABLE2               {}
 
 /**
- * \brief If defined, creates a thermistor table at startup.
+ *  If defined, creates a thermistor table at startup.
  * 
  * If you don't feel like computing the table on your own, you can use this generic method. It is
  * a simple approximation which may be not as accurate as a good table computed from the reference
@@ -561,30 +561,30 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 
 */
 
-/** \brief Reference Temperature */
+/**  Reference Temperature */
 #define GENERIC_THERM1_T0                   25
 
-/** \brief Resistance at reference temperature */
+/**  Resistance at reference temperature */
 #define GENERIC_THERM1_R0                   200000
 
 /**
- * \brief Beta value of thermistor
+ *  Beta value of thermistor
  * You can use the beta from the datasheet or compute it yourself.
  * See http://reprap.org/wiki/MeasuringThermistorBeta for more details.
  */
 #define GENERIC_THERM1_BETA                 8304
 
-/** \brief Start temperature for generated thermistor table */
+/**  Start temperature for generated thermistor table */
 #define GENERIC_THERM1_MIN_TEMP             -20
 
-/** \brief End Temperature for generated thermistor table */
+/**  End Temperature for generated thermistor table */
 #define GENERIC_THERM1_MAX_TEMP             300
 #define GENERIC_THERM1_R1                   0
 #define GENERIC_THERM1_R2                   4700
 
 // The same for table 2 and 3 if needed
 
-/** \brief USE_GENERIC_THERMISTORTABLE_2 */
+/**  USE_GENERIC_THERMISTORTABLE_2 */
 #define GENERIC_THERM2_T0                   170
 #define GENERIC_THERM2_R0                   1042.7f
 #define GENERIC_THERM2_BETA                 4036
@@ -593,7 +593,7 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 #define GENERIC_THERM2_R1                   0
 #define GENERIC_THERM2_R2                   4700
 
-/** \brief USE_GENERIC_THERMISTORTABLE_3 */
+/**  USE_GENERIC_THERMISTORTABLE_3 */
 #define GENERIC_THERM3_T0                   170
 #define GENERIC_THERM3_R0                   1042.7f
 #define GENERIC_THERM3_BETA                 4036
@@ -602,16 +602,16 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 #define GENERIC_THERM3_R1                   0
 #define GENERIC_THERM3_R2                   4700
 
-/** \brief Supply voltage to ADC, can be changed by setting ANALOG_REF below to different value. */
+/**  Supply voltage to ADC, can be changed by setting ANALOG_REF below to different value. */
 #define GENERIC_THERM_VREF                  5
 
 /** 
- * \brief Number of entries in generated table. One entry takes 4 bytes. Higher number of entries increase computation time too.
+ *  Number of entries in generated table. One entry takes 4 bytes. Higher number of entries increase computation time too.
  * Value is used for all generic tables created. 
  */
 #define GENERIC_THERM_NUM_ENTRIES           33
 
-/** \brief If enabled, writes the created generic table to serial port at startup. */
+/**  If enabled, writes the created generic table to serial port at startup. */
 //#define PRINT_GENERIC_TEMP_TABLE
 
 // ##########################################################################################
@@ -619,7 +619,7 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 // ##########################################################################################
 
 /** 
- * \brief The firmware checks if the heater and sensor got decoupled, which is dangerous. Since it will never reach target
+ *  The firmware checks if the heater and sensor got decoupled, which is dangerous. Since it will never reach target
  * temperature, the heater will stay on for every which can burn your printer or house.
  * As an additional barrier to your smoke detectors (I hope you have one above your printer) we now
  * do some more checks to detect if something got wrong. 
@@ -645,7 +645,7 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 // ##########################################################################################
 
 /** 
- * \brief If you have an unused extruder stepper free, you could use it to drive the second z motor
+ *  If you have an unused extruder stepper free, you could use it to drive the second z motor
  * instead of driving both with a single stepper. The same works for the other axis if needed. 
  */
 
@@ -669,16 +669,16 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 // ##   configure the SD Card
 // ##########################################################################################
 
-/** \brief  Select whether the SD card is supported. */
+/**   Select whether the SD card is supported. */
 #define SDSUPPORT                           1                                                   // 1 = supported, 0 = not supported
 
-/** \brief  Change to true if you get a inserted message on removal. */
+/**   Change to true if you get a inserted message on removal. */
 #define SDCARDDETECTINVERTED                false
 
-/** \brief Show extended directory including file length. Don't use this with Pronterface! */
+/**  Show extended directory including file length. Don't use this with Pronterface! */
 #define SD_EXTENDED_DIR                     true
 
-/** \brief Total size of the buffer used to store the long filenames */
+/**  Total size of the buffer used to store the long filenames */
 // If you need more maximum file name length than 26 chars 
 // - For SD-Printing using a Gcode / using Octoprints sd file listing
 // - Or for seeing the full filenames within the SD-Card file menu
@@ -693,7 +693,7 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 // ##   configuration of the manual steps
 // ##########################################################################################
 
-/** \brief Configuration of the manual steps */
+/**  Configuration of the manual steps */
 // (Jeder dieser Werte*steps/mm der Achse muss in unsigned short passen)
 #define DEFAULT_MANUAL_MM_X                    0.1f                            // [mm]
 #define DEFAULT_MANUAL_MM_Y                    0.1f                            // [mm]
@@ -712,49 +712,49 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 // ###############################################################################
 
 /** 
- * \brief Select the language to use.
+ *  Select the language to use.
  * 0 = English
  * 1 = German 
  */
-#define UI_LANGUAGE                         0
+#define UI_LANGUAGE                         1
 
-/** \brief How many ms should a single page be shown, until it is switched to the next one.*/
+/**  How many ms should a single page be shown, until it is switched to the next one.*/
 #define UI_PAGES_DURATION                   4000
 
 /** 
- * \brief Uncomment if you don't want automatic page switching. You can still switch the
+ *  Uncomment if you don't want automatic page switching. You can still switch the
  * info pages with next/previous button/click-encoder
  */
 #define UI_DISABLE_AUTO_PAGESWITCH          true
 
-/** \brief Time to return to info menu if x millisconds no key was pressed. Set to 0 to disable it. */
+/**  Time to return to info menu if x millisconds no key was pressed. Set to 0 to disable it. */
 #define UI_PRINT_AUTORETURN_TO_MENU_AFTER   120000
 #define UI_MILL_AUTORETURN_TO_MENU_AFTER    0
 
 /**
- * \brief Normally cou want a next/previous actions with every click of your encoder.
+ *  Normally cou want a next/previous actions with every click of your encoder.
  * Unfotunately, the encoder have a different count of phase changes between clicks.
  * Select an encoder speed from 0 = fastest to 2 = slowest that results in one menu move per click.
  */
 #define UI_ENCODER_SPEED                    1
 
-/** \brief bounce time of keys in milliseconds */
+/**  bounce time of keys in milliseconds */
 #define UI_KEY_BOUNCETIME                   10
 
-/** \brief First time in ms until repeat of action. */
+/**  First time in ms until repeat of action. */
 #define UI_KEY_FIRST_REPEAT                 500
 
-/** \brief Reduction of repeat time until next execution. */
+/**  Reduction of repeat time until next execution. */
 #define UI_KEY_REDUCE_REPEAT                50
 
-/** \brief Lowest repeat time. */
+/**  Lowest repeat time. */
 #define UI_KEY_MIN_REPEAT                   50
 
-/** \brief Default beeper mode. */
+/**  Default beeper mode. */
 #define BEEPER_MODE                         1                                                   // 1 = on, 0 = off
 
 /**
- * \brief Beeper sound definitions for short beeps during key actions
+ *  Beeper sound definitions for short beeps during key actions
  * and longer beeps for important actions.
  * Parameter is delay in microseconds and the second is the number of repetitions.
  * Values must be in range 1..255
@@ -781,18 +781,18 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 #define BEEPER_ALIGN_EXTRUDERS_SEQUNCE          50,5
 #define BEEPER_WRONG_FIRMWARE_SEQUNCE           255,16
 
-/** \brief Values used for preheat */
+/**  Values used for preheat */
 #define UI_SET_PRESET_HEATED_BED_TEMP_PLA   60
 #define UI_SET_PRESET_EXTRUDER_TEMP_PLA     180
 #define UI_SET_PRESET_HEATED_BED_TEMP_ABS   100
 #define UI_SET_PRESET_EXTRUDER_TEMP_ABS     210
 
-/** \brief Values used for unload(unmount)/load(mount) filament */
+/**  Values used for unload(unmount)/load(mount) filament */
 #define UI_SET_EXTRUDER_MIN_TEMP_UNMOUNT     90                                                 //hat anfangs hohe toleranz.
 #define UI_SET_EXTRUDER_MAX_TEMP_UNMOUNT    240
 #define UI_SET_EXTRUDER_TEMP_MOUNT          210
 
-/** \brief Extreme values */
+/**  Extreme values */
 #define UI_SET_MIN_HEATED_BED_TEMP          50
 #define UI_SET_MAX_HEATED_BED_TEMP          160
 #define UI_SET_MIN_EXTRUDER_TEMP            70
@@ -806,7 +806,7 @@ Honeywell 100K Thermistor (135-104LAG-J01)  : R0 = 100000  T0 = 25  Beta = 3974
 #define SPEED_MAGNIFICATION                 100.0f
 
 /**
- * \brief Specifies if you want to see the TipDown Support within Z-Configuration Menu. 
+ *  Specifies if you want to see the TipDown Support within Z-Configuration Menu. 
  * This is only usefull if you have a dual hotend with possible servo or spring z-offset-shift.
  */
 #define UI_SHOW_TIPDOWN_IN_ZCONFIGURATION   0                                                   // 1 = show, 0 = hide
@@ -900,71 +900,71 @@ we use blocks of 2 kByte size for the structure of our EEPROM
 // ##   miscellaneous configurations
 // ##########################################################################################
 
-/** \brief Defines the Z-Offset stepsize interval for the Menu-Action in [um] */
+/**  Defines the Z-Offset stepsize interval for the Menu-Action in [um] */
 #define Z_OFFSET_MENU_STEPS                 25
-/** \brief Allows to change the amount of Z-Offset which is changed by a push of the Z-Up or Z-Down button ONLY within the Mod Menu Page 2 */
+/**  Allows to change the amount of Z-Offset which is changed by a push of the Z-Up or Z-Down button ONLY within the Mod Menu Page 2 */
 #define Z_OFFSET_BUTTON_STEPS               5
 
-/** \brief Defines the default z scale */
+/**  Defines the default z scale */
 #define DEFAULT_Z_SCALE_MODE                Z_VALUE_MODE_LAYER
 
-/** \brief Minimal temperature which can be reached by cooling */
+/**  Minimal temperature which can be reached by cooling */
 #define MAX_ROOM_TEMPERATURE                40                                                  // [°C]
 
-/** \brief Defines the I2C address for the strain gauge */
+/**  Defines the I2C address for the strain gauge */
 #define I2C_ADDRESS_STRAIN_GAUGE            0x49
 
-/** \brief Defines which strain gauge is used for the heat bed scan */
+/**  Defines which strain gauge is used for the heat bed scan */
 #define ACTIVE_STRAIN_GAUGE                 0x49
 
-/** \brief Defines the I2C address for the external EEPROM which stores the z-compensation matrix */
+/**  Defines the I2C address for the external EEPROM which stores the z-compensation matrix */
 #define I2C_ADDRESS_EXTERNAL_EEPROM         0x50
 
-/** \brief Defines the I2C address for the external EEPROM which stores type information */
+/**  Defines the I2C address for the external EEPROM which stores type information */
 #define I2C_ADDRESS_TYPE_EEPROM             0x51
 
 /**
- * \brief Allows to use this firmware together with the non-Repetier PC applications
+ *  Allows to use this firmware together with the non-Repetier PC applications
  * Without this special handling, the firmware may complain about checksum errors from non-Repetier PC applications (e.g. Cura, ...) and
  * non-Repetier PC applications may fall over the debug outputs of the firmware.
  */
 #define ALLOW_EXTENDED_COMMUNICATION        2                                                   // 0 = do not allow, 1 = allow "Wait", 2 = allow "Wait" and debug outputs
 
 /** 
- * \brief Configuration of the external watchdog
+ *  Configuration of the external watchdog
  * The TPS3820 of the RF1000/RF2000 resets about 112/200/310 (min/typical/max) ms after the last time when it was triggered
  * http://pdf1.alldatasheet.com/datasheet-pdf/view/29215/TI/TPS3820-50DBVT.html
  * t_d in datasheet is delay time: how long reset is triggered after timeout: 15...25...37ms for TPS3820.
  */
 #define WATCHDOG_MAIN_LOOP_TIMEOUT          20000UL                                             // [ms] -> uhrzeit intern scheint nicht immer zu stimmen!
 
-/** \brief Longer-lasting operations shall call our periodical actions at least each defined time interval */
+/**  Longer-lasting operations shall call our periodical actions at least each defined time interval */
 #define PERIODICAL_ACTIONS_CALL_INTERVAL    10                                                  // [ms]
 
-/** \brief The display shows that the device is idle after no new commands were processed for longer than the minimal idle time */
+/**  The display shows that the device is idle after no new commands were processed for longer than the minimal idle time */
 #define MINIMAL_IDLE_TIME                   500                                                 // [ms]
 
-/** \brief If enabled you can select the distance your filament gets retracted during a M140 command, after a given temperature is reached. */
+/**  If enabled you can select the distance your filament gets retracted during a M140 command, after a given temperature is reached. */
 #define RETRACT_DURING_HEATUP               true
 
 /**
- * \brief PID control only works target temperature +/- PID_CONTROL_RANGE.
+ *  PID control only works target temperature +/- PID_CONTROL_RANGE.
  * If you get much overshoot at the first temperature set, because the heater is going full power too long, you
  * need to increase this value. For one 6.8 Ohm heater 10 is ok. With two 6.8 Ohm heater use 15.
  */
 #define PID_CONTROL_RANGE                   30
-/** \brief If you change those you might have to do fresh autotunePIDs on your heaters. */
+/**  If you change those you might have to do fresh autotunePIDs on your heaters. */
 #define PID_CONTROL_DRIVE_MAX_LIMIT_FACTOR  10.0f //this was 10
 #define PID_CONTROL_DRIVE_MIN_LIMIT_FACTOR  -1.0f //this was 10 but -1.0 works well with drive max 100 and drive min 5. If this number is negative you get a real PID control, no PD+posI-control anymore.
 
 /**
- * \brief Prevent extrusions longer then x mm for one command. This is especially important if you abort a print. Then the
+ *  Prevent extrusions longer then x mm for one command. This is especially important if you abort a print. Then the
  * extrusion position might be at any value like 23344. If you then have an G1 E-2 it will roll back 23 meter!
  */
 #define EXTRUDE_MAXLENGTH                   100.0f
 
 /**
- * \brief Set PID scaling
+ *  Set PID scaling
  * PID values assume a usable range from 0-255. This can be further limited to EXT0_PID_MAX by two methods.
  * Set the value to 0: Normal computation, just clip output to EXT0_PID_MAX if computed value is too high.
  * Set value to 1: Scale PID by EXT0_PID_MAX/256 and then clip to EXT0_PID_MAX.
@@ -973,21 +973,21 @@ we use blocks of 2 kByte size for the structure of our EEPROM
 #define SCALE_PID_TO_MAX                    0
 
 /**
- * \brief Temperature range for target temperature to hold in M109 command. 5 means +/-5 degC
+ *  Temperature range for target temperature to hold in M109 command. 5 means +/-5 degC
  * Uncomment define to force the temperature into the range for given watchperiod.
  */
 #define TEMP_TOLERANCE                      2.0f                                               // [°C]
 
 /**
- * \brief Additional special temperature tolerance range when unpausing print.
+ *  Additional special temperature tolerance range when unpausing print.
  * Faster start is better here, because reaching pause position might take a while - for a bit less oozing
  */
 #define ADD_CONTINUE_AFTER_PAUSE_TEMP_TOLERANCE         2                                      // [°C]
 
-/** \brief Bits of the ADC converter */
+/**  Bits of the ADC converter */
 #define ANALOG_INPUT_BITS                   10
 
-/** \brief Build median from 2^ANALOG_INPUT_SAMPLE samples */
+/**  Build median from 2^ANALOG_INPUT_SAMPLE samples */
 #define ANALOG_INPUT_SAMPLE                 5
 #define ANALOG_REF_AREF                     0
 #define ANALOG_REF_AVCC                     _BV(REFS0)
@@ -995,38 +995,38 @@ we use blocks of 2 kByte size for the structure of our EEPROM
 #define ANALOG_REF_INT_2_56                 _BV(REFS0) | _BV(REFS1)
 #define ANALOG_REF                          ANALOG_REF_AVCC
 
-/** \brief Step to split a circle in small Lines */
+/**  Step to split a circle in small Lines */
 #define MM_PER_ARC_SEGMENT                  1
 #define MM_PER_ARC_SEGMENT_BIG              3
 
-/** \brief After this count of steps a new SIN / COS caluclation is startet to correct the circle interpolation */
+/**  After this count of steps a new SIN / COS caluclation is startet to correct the circle interpolation */
 #define N_ARC_CORRECTION                    25
 
-/** \brief Communication speed. Overridden if EEPROM activated. */
+/**  Communication speed. Overridden if EEPROM activated. */
 #define BAUDRATE                            115200
 
 /**
- * \brief Cache size for incoming commands.
+ *  Cache size for incoming commands.
  * There should be no reason to increase this cache. Commands are nearly immediately sent to
  * execution.
  */
 #define GCODE_BUFFER_SIZE                   2
 
 /**
- * \brief Appends the linenumber after every ok send, to acknowledge the received command.
+ *  Appends the linenumber after every ok send, to acknowledge the received command.
  * Uncomment for plain ok ACK if your host has problems with this
  */
 #define ACK_WITH_LINENUMBER                 1
 
 /**
- * \brief Communication errors can swollow part of the ok, which tells the host software to send
+ *  Communication errors can swollow part of the ok, which tells the host software to send
  * the next command. Not receiving it will cause your printer to stop. Sending this string every
  * second, if our queue is empty should prevent this. Comment it, if you don't wan't this feature.
  */
 #define WAITING_IDENTIFIER                  "wait"
 
 /**
- * \brief Sets time for echo debug
+ *  Sets time for echo debug
  * You can set M111 1 which enables ECHO of commands sent. This define specifies the position,
  * when it will be executed. In the original FiveD software, echo is done after receiving the
  * command. With checksum you know, how it looks from the sending string. With this define
@@ -1037,29 +1037,29 @@ we use blocks of 2 kByte size for the structure of our EEPROM
 #define ECHO_ON_EXECUTE                     1
 
 /**
- * \brief If the firmware is busy, it will send a busy signal to host signaling that
+ *  If the firmware is busy, it will send a busy signal to host signaling that
  * everything is fine and it only takes a bit longer to finish. That way the
  * host can keep timeout short so in case of communication errors the resulting
  * blobs are much smaller. Set to 0 to disable it.
  */
 #define KEEP_ALIVE_INTERVAL                 2000                                                // [ms]
 
-/** \brief  Turn the case light on/off per default */
+/**   Turn the case light on/off per default */
 #define CASE_LIGHTS_DEFAULT_ON              0
 
-/** \brief Define the on temperature and the off delay for the fan */
+/**  Define the on temperature and the off delay for the fan */
 #define CASE_FAN_ON_TEMPERATURE             50                                                  // [°C]
 #define CASE_FAN_OFF_DELAY                  60000                                               // [ms]
 
-/** \brief Specify whether the case fan all be always on */
+/**  Specify whether the case fan all be always on */
 #define CASE_FAN_ALWAYS_ON                  0                                                   // 1 = always on, 0 = automatic switching and switching via G-Code
 
-/** \brief Defines the default behavior of the Position X/Y/Z menus */
+/**  Defines the default behavior of the Position X/Y/Z menus */
 #define DEFAULT_MOVE_MODE_X                 MOVE_MODE_SINGLE_STEPS
 #define DEFAULT_MOVE_MODE_Y                 MOVE_MODE_SINGLE_STEPS
 #define DEFAULT_MOVE_MODE_Z                 MOVE_MODE_SINGLE_STEPS
 
-/** \brief For Nibbels external interrupt 3 plus an extra pin is used for reading digital calipers. You will have to solder some logic-converter from 1.8v to 5v see http://www.instructables.com/id/Reading-Digital-Callipers-with-an-Arduino-USB/ */
+/**  For Nibbels external interrupt 3 plus an extra pin is used for reading digital calipers. You will have to solder some logic-converter from 1.8v to 5v see http://www.instructables.com/id/Reading-Digital-Callipers-with-an-Arduino-USB/ */
 #define FEATURE_READ_CALIPER               0                                                   // 0 = OFF, 1 = ON
 // RF2000/RF1000: RESERVE_DIGITAL_PIN_PD3 is INT3 for having clocks falling edges collected
 #define FEATURE_READ_CALIPER_INT_PIN       RESERVE_DIGITAL_PIN_PD3                             
@@ -1070,7 +1070,7 @@ we use blocks of 2 kByte size for the structure of our EEPROM
 #endif
 
 /**
- * \brief For Nibbels external interrupt 3 button at RF1000 X25.8 und RF2000 X34.2 "EXT_IRQ"/INT3
+ *  For Nibbels external interrupt 3 button at RF1000 X25.8 und RF2000 X34.2 "EXT_IRQ"/INT3
  * You can activate this to 1 and connect some Button.
  * If you connect ground to pull the pullup down you will let the firmware jump into interrupt routine
  */
@@ -1080,23 +1080,23 @@ we use blocks of 2 kByte size for the structure of our EEPROM
  #error You cannot use FEATURE_READ_CALIPER and FEATURE_USER_INT3 at the same time with stock programming. Please change pins/etc. and remove this errorcheck
 #endif
 
-/** \brief Nibbels/PeterKA Testfeature: It can check if you lost steps and test your buttons hysteresis and give a good hint if your printer lost steps by hardware fault */
+/**  Nibbels/PeterKA Testfeature: It can check if you lost steps and test your buttons hysteresis and give a good hint if your printer lost steps by hardware fault */
 #define FEATURE_CHECK_HOME                  1
 
-/** \brief This adds some GCode M3029 to simulate Key-Press by GCode and to read whats inside the printers Display rightnow. */
+/**  This adds some GCode M3029 to simulate Key-Press by GCode and to read whats inside the printers Display rightnow. */
 #define FEATURE_SEE_DISPLAY                 1
 
-/** \brief This feature allows you to extrude into thin air to messure the filaments viscosity value using dms sensors */
+/**  This feature allows you to extrude into thin air to messure the filaments viscosity value using dms sensors */
 #define FEATURE_VISCOSITY_TEST              0
 
-/** \brief This is some testing function for reading the stepper drivers status bits while operation */
+/**  This is some testing function for reading the stepper drivers status bits while operation */
 #define FEATURE_READ_STEPPER_STATUS         0
 
-/** \brief Automatic Startline */
+/**  Automatic Startline */
 #define FEATURE_STARTLINE                   1
 
 /** 
- * \brief Z-Wobble elimination tool
+ *  Z-Wobble elimination tool
  * Two offsets [dx, dy] = f(z) in x and y direction can simulate hardware z-wobble.
  * With much care you can adjust this software z-wobble as an opposite to the hardware introduced z-wobble.
  * The underlying principle is the same principle used for noise suppression.

@@ -512,13 +512,17 @@ public:
         switch(axis) {
             case X_AXIS:
               setXDirection(positive);
-              break;
+              return true;
             case Y_AXIS:
               setYDirection(positive);
-              break;
+              return true;
             case Z_AXIS:
               setZDirection(positive);
-              break;
+              return true;
+            default:
+              // Unbekannte Achse, Operation kann nicht ausgeführt werden.
+              // Es ist eine gute Praxis, hier false zurückzugeben.
+              return false;
         }
     } // setAxisDirection
 
@@ -587,6 +591,9 @@ public:
               return getYDirectionIsPos();
             case Z_AXIS:
               return getZDirectionIsPos();
+            default:
+              // For an unknown axis, the direction cannot be determined.
+              return false; 
         }
     } // getAxisDirectionIsPos
 

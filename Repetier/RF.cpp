@@ -10494,7 +10494,7 @@ void drv8711Init(void) {
 // TORQUE = 13 (0x0D hexadezimal) für ca. 2.1A Spitzenstrom. – Beibehalten.
 // SMPLTH = 00000000 (Standard) – Beibehalten.
 #define DRV8711_REGISTER_01 0x000D // 0000 0000 0000 1101: TORQUE = 00001101 (0x0D)
-
+#if FEATURE_STEPPER_LESS_NOISE
 // Register 0x02: OFF (Off-Time Register)
 // TOFF wurde auf 0x20 (16µs) reduziert, um die Chopping-Frequenz zu erhöhen
 // und hörbares Zwitschern zu beseitigen. – Beibehalten.
@@ -10513,7 +10513,12 @@ void drv8711Init(void) {
 // Stromwellenform und somit zu einer weiteren Geräuschreduzierung führen.
 // DECMOD = 101 (Auto Mixed Decay) – Beibehalten, da dies für leisen Betrieb vorteilhaft ist.
 #define DRV8711_REGISTER_04 0x4504 // 0100 0101 0000 0100: TDECAY = 00000100 (0x04), DECMOD = 101
-
+#else
+// original values
+#define DRV8711_REGISTER_02 0x2097 // 0010   0000  1001 0111: TOFF = 10010111, PWMMODE = 0
+#define DRV8711_REGISTER_03 0x31D7 // 0011   0001  1101 0111: TBLANK = 11010111, ABT = 1
+#define DRV8711_REGISTER_04 0x4430 // 0100   0100  0011 0000: TDECAY = 00110000, DECMOD = 100
+#endif // FEATURE_STEPPER_LESS_NOISE
 // Register 0x05: STALL (Stall Detection Register) – Unverändert
 #define DRV8711_REGISTER_05 0x583C // 0101 1000 0011 1100: SDTHR = 00111100, SDCNT = 00, VDIV = 10
 

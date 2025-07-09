@@ -73,6 +73,9 @@ Overflow in Z-Matrix: >12.7f
 
 #endif // FEATURE_MILLING_MODE
 
+/** Set the new silent stepper mode by DennisNochmal */
+#define FEATURE_STEPPER_LESS_NOISE 1 // if not wanted, undefine the line
+
 /** \brief Allows to use the 230V output */
 #define FEATURE_230V_OUTPUT 0 // the RF1000 does not support the 230 V output
 
